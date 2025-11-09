@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>رسالة غرامية 💖</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle, #ffccd5, #ff9aa2, #ff758f);
+      font-family: 'Cairo', sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+      padding-top: 60px; /* مساحة للـ Navbar */
+    }
+
+    /* 🔹 شريط التنقل */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: linear-gradient(90deg, #ff6b81, #ff8ba7, #ffb3c6);
+      color: white;
+      padding: 15px 0;
+      text-align: center;
+      font-weight: bold;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+      z-index: 1000;
+      transform: translateZ(0);
+    }
+
+    /* 💓 الصندوق */
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(255, 0, 0, 0.5);
+      padding: 30px;
+      text-align: center;
+      color: white;
+      max-width: 380px;
+      z-index: 10;
+      transform-origin: center center;
+      animation: pulseBox 1.8s infinite ease-in-out, glow 2s infinite alternate;
+    }
+
+    h1 {
+      font-size: 1.8em;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 1.1em;
+      line-height: 1.8;
+      text-shadow: 0 0 5px rgba(255,255,255,0.4);
+    }
+
+    .love-btn {
+      margin-top: 25px;
+      padding: 10px 25px;
+      background: #fff;
+      color: #e91e63;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 1em;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .love-btn:hover {
+      background: #e91e63;
+      color: #fff;
+      transform: scale(1.1);
+      box-shadow: 0 0 15px #ff1744;
+    }
+
+    /* 💓 نبض وتوهج الصندوق */
+    @keyframes pulseBox {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.03); }
+    }
+
+    @keyframes glow {
+      from { box-shadow: 0 0 10px #ff1744; }
+      to { box-shadow: 0 0 40px #ff4081; }
+    }
+
+    /* 💕 القلوب */
+    .heart {
+      position: absolute;
+      bottom: -30px;
+      color: #ff1744;
+      font-size: 20px;
+      opacity: 0.8;
+      animation: floatUp linear forwards;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-110vh) scale(1.4); opacity: 0; }
+    }
+
+    @media (max-width: 500px) {
+      h1 { font-size: 1.6em; }
+      p { font-size: 1em; }
+      .card { width: 90%; padding: 25px; }
+    }
+  </style>
+</head>
+<body>
+  <nav>💌 نحبك يا دودي💖</nav>
+
+  <div class="card">
+    <h1>❤️ إلى من أملك قلبي ❤️</h1>
+    <p>
+      كل لحظة تمرّ، أجد نفسي أفكر فيك..<br>
+      في ابتسامتك، في حضورك الجميل..<br>
+      أحبك أكثر مما تتخيل 💖
+    </p>
+    <button class="love-btn" onclick="window.location.href='love2.html'">انتقلي إلى قلبي ❤️</button>
+  </div>
+
+  <script>
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.innerHTML = '💖';
+      document.body.appendChild(heart);
+
+      heart.style.left = Math.random() * 100 + 'vw';
+      const size = Math.random() * 30 + 15;
+      heart.style.fontSize = size + 'px';
+      const duration = Math.random() * 3 + 4;
+      heart.style.animationDuration = duration + 's';
+      setTimeout(() => heart.remove(), duration * 1000);
+    }
+    setInterval(createHeart, 300);
+  </script>
+</body>
+</html>
